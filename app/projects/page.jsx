@@ -1,4 +1,5 @@
-import Head from 'next/head';
+// app/projects/page.jsx - CREATE THIS NEW FILE
+'use client';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Image from 'next/image';
@@ -288,11 +289,6 @@ const Projects = () => {
 
   return (
     <>
-      <Head>
-        <title>Our Projects | Green Kenya Initiative</title>
-        <meta name="description" content="Explore Green Kenya Initiative's environmental projects - from tree planting to youth education and community development." />
-      </Head>
-
       {selectedVideo && (
         <VideoPlayer 
           video={selectedVideo.video} 

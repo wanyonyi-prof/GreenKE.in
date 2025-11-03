@@ -1,12 +1,8 @@
-import Head from 'next/head';
+// app/about/page.jsx - CREATE THIS NEW FILE
+'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { 
-  Users, Target, Eye, Heart, 
-  Sparkles, Rocket, Trees, Lightbulb, 
-  TrendingUp, Trophy, Monitor, Globe, 
-  Star, Users2, MapPin, Sprout 
-} from 'lucide-react';
+import { Users, Target, Eye, Heart } from 'lucide-react';
 
 const About = () => {
   const values = [
@@ -37,7 +33,7 @@ const About = () => {
       year: 'Jan 2024', 
       event: 'Vision Born', 
       description: 'GKI began as a vision for youth-led environmental action combined with solving youth unemployment. The dream was to create a platform where young people could drive social, economic, and environmental transformation.',
-      icon: Sparkles,
+      icon: '🌱',
       color: 'from-green-500 to-emerald-500',
       achievements: ['Vision conceptualized', 'Youth empowerment focus established', 'Sustainability goals defined']
     },
@@ -45,7 +41,7 @@ const About = () => {
       year: 'Mar 2024', 
       event: 'Inception & Formation', 
       description: 'The vision gained momentum through collaborations with passionate individuals, experts, and stakeholders. GKI evolved from an idea into a structured organization with clear objectives and leadership.',
-      icon: Rocket,
+      icon: '🚀',
       color: 'from-blue-500 to-cyan-500',
       achievements: ['Organization structure formed', 'Expert collaborations established', 'Strategic partnerships initiated']
     },
@@ -53,7 +49,7 @@ const About = () => {
       year: 'Jun 2024', 
       event: 'First Community Projects', 
       description: 'Launched initial environmental projects including tree-planting drives and youth mentorship programs. Began creating tangible impact in local communities while empowering youth.',
-      icon: Trees,
+      icon: '🌳',
       color: 'from-emerald-500 to-green-500',
       achievements: ['Tree planting initiatives started', 'Youth mentorship programs launched', 'Community engagement began']
     },
@@ -61,7 +57,7 @@ const About = () => {
       year: 'Sep 2024', 
       event: 'Innovation Expansion', 
       description: 'Introduced innovative projects including avocado oil production using local techniques and Black Soldier Fly farming for sustainable fertilizer and poultry feed production.',
-      icon: Lightbulb,
+      icon: '💡',
       color: 'from-purple-500 to-pink-500',
       achievements: ['Avocado oil production started', 'Black Soldier Fly farming initiated', 'Sustainable agriculture expanded']
     },
@@ -69,7 +65,7 @@ const About = () => {
       year: 'Dec 2024', 
       event: 'Regional Growth', 
       description: 'Expanded operations across multiple Kenyan regions including Nyanza, Western, Central, and Rift Valley. Grew to hundreds of active members united under one mission.',
-      icon: TrendingUp,
+      icon: '📈',
       color: 'from-orange-500 to-red-500',
       achievements: ['Multi-regional presence established', '100+ active volunteers', '5 counties reached']
     },
@@ -77,7 +73,7 @@ const About = () => {
       year: 'Mar 2025', 
       event: 'National Recognition', 
       description: 'Received awards and recognition for innovation in youth environmental programs. Gained national attention for the unique approach combining environmental conservation with youth economic empowerment.',
-      icon: Trophy,
+      icon: '🏆',
       color: 'from-yellow-500 to-amber-500',
       achievements: ['Award recognition received', 'National media coverage', 'Program innovation acknowledged']
     },
@@ -85,7 +81,7 @@ const About = () => {
       year: 'Jun 2025', 
       event: 'Digital Transformation', 
       description: 'Launched comprehensive online platforms and digital tools to reach more youth across Kenya. Enhanced communication, project management, and community engagement through technology.',
-      icon: Monitor,
+      icon: '💻',
       color: 'from-indigo-500 to-blue-500',
       achievements: ['Online platforms launched', 'Digital outreach expanded', 'Tech-enabled operations']
     },
@@ -93,7 +89,7 @@ const About = () => {
       year: 'Sep 2025', 
       event: 'National Impact', 
       description: 'Expanded to 15+ communities with 300+ active volunteers. Solidified position as a leading youth-led environmental organization creating both ecological and economic impact.',
-      icon: Globe,
+      icon: '🌍',
       color: 'from-teal-500 to-cyan-500',
       achievements: ['15+ communities reached', '300+ active volunteers', 'National footprint established']
     },
@@ -101,28 +97,16 @@ const About = () => {
       year: '2026+', 
       event: 'Future Vision', 
       description: 'Working towards building a networked generation of young leaders achieving environmental, cultural, and socio-economic sustainability for Kenya and beyond through digital transformation and innovation.',
-      icon: Star,
+      icon: '🔮',
       color: 'from-gray-500 to-slate-500',
       achievements: ['Digital innovation expansion', 'Pan-African vision', 'Sustainable development goals']
     }
   ];
 
-  const impactStats = [
-    { number: '300+', label: 'Active Volunteers', icon: Users2, color: 'text-green-600 dark:text-green-400' },
-    { number: '15+', label: 'Communities', icon: MapPin, color: 'text-blue-600 dark:text-blue-400' },
-    { number: '4', label: 'Regions', icon: Globe, color: 'text-purple-600 dark:text-purple-400' },
-    { number: '10+', label: 'Projects', icon: Sprout, color: 'text-emerald-600 dark:text-emerald-400' }
-  ];
-
   return (
     <>
-      <Head>
-        <title>About Us | Green Kenya Initiative</title>
-        <meta name="description" content="Learn about Green Kenya Initiative's mission, vision, and journey in empowering youth for environmental conservation." />
-      </Head>
-
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-teal-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -131,7 +115,7 @@ const About = () => {
             className="text-center"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              About <span className="text-gradient">GKI</span>
+              About <span className="bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">GKI</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
               We are a youth-led movement driving innovation, sustainability, and empowerment 
@@ -189,7 +173,7 @@ const About = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-primary-500 rounded-2xl rotate-12 z-10"></div>
+              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-teal-500 rounded-2xl rotate-12 z-10"></div>
               <div className="absolute -top-6 -right-6 w-20 h-20 bg-blue-500 rounded-2xl -rotate-12 z-10"></div>
             </motion.div>
           </div>
@@ -222,9 +206,9 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="card-modern p-6 text-center group hover:border-primary-200 dark:hover:border-primary-600"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 text-center group hover:border-teal-200 dark:hover:border-teal-600 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary-500 to-blue-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-teal-500 to-blue-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <value.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
@@ -275,19 +259,19 @@ const About = () => {
                   }`}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-12 h-12 bg-white dark:bg-gray-800 rounded-full border-4 border-green-500 z-10 flex items-center justify-center shadow-lg">
-                    <milestone.icon className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-white dark:bg-gray-800 rounded-full border-4 border-green-500 z-10 flex items-center justify-center">
+                    <span className="text-lg">{milestone.icon}</span>
                   </div>
                   
                   {/* Content */}
-                  <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'} ml-16 md:ml-0`}>
+                  <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'} ml-12 md:ml-0`}>
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border-l-4 border-green-500"
                     >
                       {/* Year badge */}
                       <div className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-bold text-white bg-gradient-to-r ${milestone.color} mb-4`}>
-                        <milestone.icon className="w-4 h-4 mr-2" />
+                        <span className="mr-2">{milestone.icon}</span>
                         {milestone.year}
                       </div>
                       
@@ -331,19 +315,22 @@ const About = () => {
             viewport={{ once: true }}
             className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
           >
-            {impactStats.map((stat, index) => (
+            {[
+              { number: '300+', label: 'Active Volunteers', icon: '👥' },
+              { number: '15+', label: 'Communities', icon: '🏘️' },
+              { number: '4', label: 'Regions', icon: '🗺️' },
+              { number: '10+', label: 'Projects', icon: '🌱' }
+            ].map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center p-6 bg-white/60 dark:bg-gray-800/60 rounded-2xl backdrop-blur-sm border border-white/20 dark:border-gray-700/50 group hover:scale-105 transition-transform duration-300"
+                className="text-center p-6 bg-white/60 dark:bg-gray-800/60 rounded-2xl backdrop-blur-sm border border-white/20 dark:border-gray-700/50"
               >
-                <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <stat.icon className="w-6 h-6 text-white" />
-                </div>
-                <div className={`text-2xl md:text-3xl font-bold ${stat.color} mb-1`}>
+                <div className="text-3xl mb-2">{stat.icon}</div>
+                <div className="text-2xl md:text-3xl font-bold text-green-600 dark:text-green-400 mb-1">
                   {stat.number}
                 </div>
                 <div className="text-gray-600 dark:text-gray-300 text-sm font-medium">

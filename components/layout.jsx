@@ -1,5 +1,6 @@
 'use client';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
@@ -16,12 +17,14 @@ const pageTransition = {
 };
 
 export default function Layout({ children }) {
+  const pathname = usePathname(); // This is the correct way to get current path
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <AnimatePresence mode="wait">
         <motion.main
-          key={typeof window !== 'undefined' ? window.location.pathname : 'default'}
+          key={pathname} // Use the Next.js hook instead of window
           initial="initial"
           animate="in"
           exit="out"

@@ -1,4 +1,5 @@
-import Head from 'next/head';
+// app/join/page.jsx - CREATE THIS NEW FILE
+'use client';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Users, Heart, Target, Award, Send, CheckCircle, AlertCircle } from 'lucide-react';
@@ -151,13 +152,8 @@ const Join = () => {
 
   return (
     <>
-      <Head>
-        <title>Join Us | Green Kenya Initiative</title>
-        <meta name="description" content="Become a volunteer with Green Kenya Initiative. Join our movement for environmental conservation and youth empowerment in Kenya." />
-      </Head>
-
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-teal-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -166,7 +162,7 @@ const Join = () => {
             className="text-center"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Join Our <span className="text-gradient">Movement</span>
+              Join Our <span className="bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">Movement</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
               Become part of Kenya's leading youth environmental initiative and help create a greener, more sustainable future.
@@ -201,9 +197,9 @@ const Join = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="card-modern p-6 text-center group hover:border-primary-200 dark:hover:border-primary-600"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 text-center group hover:border-teal-200 dark:hover:border-teal-600 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary-500 to-blue-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-teal-500 to-blue-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <benefit.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
@@ -226,7 +222,7 @@ const Join = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="card-modern p-8"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg"
           >
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
@@ -250,7 +246,7 @@ const Join = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
                     placeholder="Your full name"
                   />
                 </div>
@@ -265,7 +261,7 @@ const Join = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -283,7 +279,7 @@ const Join = () => {
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
                     placeholder="+254 XXX XXX XXX"
                   />
                 </div>
@@ -298,7 +294,7 @@ const Join = () => {
                     value={formData.location}
                     onChange={(e) => setFormData({...formData, location: e.target.value})}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
                     placeholder="Your city/town"
                   />
                 </div>
@@ -315,15 +311,15 @@ const Join = () => {
                       key={category.value}
                       className={`relative border-2 rounded-2xl p-4 cursor-pointer transition-all duration-300 ${
                         formData.membership === category.value
-                          ? 'border-primary-500 bg-primary-50 dark:bg-primary-900/20'
-                          : 'border-gray-300 dark:border-gray-600 hover:border-primary-300 dark:hover:border-primary-500'
+                          ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20'
+                          : 'border-gray-300 dark:border-gray-600 hover:border-teal-300 dark:hover:border-teal-500'
                       }`}
                       onClick={() => setFormData({...formData, membership: category.value})}
                     >
                       <div className="flex items-start space-x-3">
                         <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 mt-0.5 ${
                           formData.membership === category.value
-                            ? 'border-primary-500 bg-primary-500'
+                            ? 'border-teal-500 bg-teal-500'
                             : 'border-gray-400 dark:border-gray-500'
                         }`}>
                           {formData.membership === category.value && (
@@ -361,8 +357,8 @@ const Join = () => {
                       onClick={() => handleInterestToggle(interest)}
                       className={`px-3 py-2 rounded-xl border transition-all duration-300 text-sm font-medium ${
                         formData.interests.includes(interest)
-                          ? 'bg-primary-500 text-white border-primary-500'
-                          : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-primary-500'
+                          ? 'bg-teal-500 text-white border-teal-500'
+                          : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-teal-500'
                       }`}
                     >
                       {interest}
@@ -381,7 +377,7 @@ const Join = () => {
                   value={formData.experience}
                   onChange={(e) => setFormData({...formData, experience: e.target.value})}
                   rows="3"
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 resize-none"
                   placeholder="Tell us about any previous volunteer or environmental experience..."
                 />
               </div>
@@ -397,7 +393,7 @@ const Join = () => {
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   required
                   rows="4"
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 resize-none"
                   placeholder="Share your motivation for joining our movement..."
                 />
               </div>
@@ -411,7 +407,7 @@ const Join = () => {
                 className={`w-full text-white font-semibold py-4 px-8 rounded-2xl shadow-lg transition-all duration-300 flex items-center justify-center ${
                   isSubmitting 
                     ? 'bg-gray-400 cursor-not-allowed' 
-                    : 'bg-gradient-to-r from-primary-600 to-blue-600 hover:shadow-xl'
+                    : 'bg-gradient-to-r from-teal-600 to-blue-600 hover:shadow-xl'
                 }`}
               >
                 {isSubmitting ? (

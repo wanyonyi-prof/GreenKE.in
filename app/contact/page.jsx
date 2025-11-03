@@ -1,4 +1,5 @@
-import Head from 'next/head';
+// app/contact/page.jsx - CREATE THIS NEW FILE
+'use client';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, Users } from 'lucide-react';
@@ -55,13 +56,8 @@ const Contact = () => {
 
   return (
     <>
-      <Head>
-        <title>Contact Us | Green Kenya Initiative</title>
-        <meta name="description" content="Get in touch with Green Kenya Initiative. We'd love to hear from you about partnerships, volunteering, or any inquiries." />
-      </Head>
-
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-teal-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -70,7 +66,7 @@ const Contact = () => {
             className="text-center"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Get In <span className="text-gradient">Touch</span>
+              Get In <span className="bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">Touch</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
               Ready to make a difference? Reach out to us for partnerships, volunteering opportunities, or any questions about our work.
@@ -90,15 +86,15 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="card-modern p-6 text-center group hover:border-primary-200 dark:hover:border-primary-600"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 text-center group hover:border-teal-200 dark:hover:border-teal-600 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-br from-primary-500 to-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-br from-teal-500 to-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <item.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                   {item.title}
                 </h3>
-                <p className="text-primary-600 dark:text-primary-400 font-semibold mb-2">
+                <p className="text-teal-600 dark:text-teal-400 font-semibold mb-2">
                   {item.details}
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -132,7 +128,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
                       placeholder="Your full name"
                     />
                   </div>
@@ -147,7 +143,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -164,7 +160,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300"
                     placeholder="What is this regarding?"
                   />
                 </div>
@@ -180,7 +176,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows="6"
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-300 resize-none"
                     placeholder="Tell us more about your inquiry..."
                   />
                 </div>
@@ -189,7 +185,7 @@ const Contact = () => {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-primary-600 to-blue-600 text-white font-semibold py-4 px-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+                  className="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white font-semibold py-4 px-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
                 >
                   Send Message
                   <Send className="w-5 h-5 ml-2" />
@@ -221,9 +217,9 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="card-modern p-6">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
                 <div className="flex items-center space-x-3 mb-4">
-                  <Clock className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+                  <Clock className="w-6 h-6 text-teal-600 dark:text-teal-400" />
                   <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
                     Response Time
                   </h4>
@@ -236,7 +232,7 @@ const Contact = () => {
                 </ul>
               </div>
 
-              <div className="card-modern p-6">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-lg">
                 <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   Preferred Contact Methods
                 </h4>

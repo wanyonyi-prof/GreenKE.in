@@ -1,14 +1,15 @@
-import Head from 'next/head';
+// app/page.jsx - REPLACE ALL CONTENT WITH THIS:
+'use client';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Stats from '../components/Stats';
-import Gallery from '../components/Gallery';
-import Leadership from '../components/Leadership';
-import Footer from '../components/Footer';
-import { Sparkles, Globe, Cpu, Zap, Target, Users, Leaf, Play, MessageCircle, Award } from 'lucide-react';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import Stats from '@/components/Stats';
+import Gallery from '@/components/Gallery';
+import Leadership from '@/components/Leadership';
+import Footer from '@/components/Footer';
+import { Sparkles, Globe, Cpu, Zap, Target, Users, Leaf, MessageCircle, Award } from 'lucide-react';
 
 // Preloader Component
 const Preloader = () => {
@@ -260,7 +261,7 @@ const EnhancedHero = () => {
 // Enhanced Stats with Tech Cards
 const EnhancedStats = () => {
   const stats = [
-    { number: '50+', label: 'Tech-Enabled & Innovative Projects', icon: Cpu, color: 'from-cyan-500 to-blue-500' },
+    { number: '50+', label: 'Tech-Enabled Projects', icon: Cpu, color: 'from-cyan-500 to-blue-500' },
     { number: '2,500+', label: 'Smart Trees Planted', icon: Leaf, color: 'from-emerald-500 to-green-500' },
     { number: '15+', label: 'Digital Communities', icon: Globe, color: 'from-teal-500 to-cyan-500' },
     { number: '300+', label: 'Innovation Volunteers', icon: Users, color: 'from-violet-500 to-purple-500' },
@@ -432,7 +433,7 @@ const WelcomeSection = () => {
               {[
                 { number: '4', label: 'Regions' },
                 { number: '15+', label: 'Communities' },
-                { number: '200+', label: 'Volunteers' },
+                { number: '300+', label: 'Volunteers' },
                 { number: '10+', label: 'Projects' }
               ].map((stat, index) => (
                 <motion.div
@@ -469,36 +470,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Green Kenya Initiative | Tech-Driven Environmental Innovation</title>
-        <meta 
-          name="description" 
-          content="Next-gen environmental conservation through AI, IoT, and youth innovation. Green Kenya Initiative leads Kenya's digital sustainability revolution." 
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        
-        {/* Enhanced Open Graph Tags */}
-        <meta property="og:title" content="Green Kenya Initiative | Tech-Driven Environmental Innovation" />
-        <meta property="og:description" content="Next-gen environmental conservation through AI, IoT, and youth innovation in Kenya." />
-        <meta property="og:image" content="/images/gki-tech-preview.jpg" />
-        <meta property="og:url" content="https://greenkenya.org" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Green Kenya Initiative" />
-        
-        {/* Enhanced Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Green Kenya Initiative - Digital Environmental Solutions" />
-        <meta name="twitter:description" content="Harnessing technology for sustainable development in Kenya" />
-        <meta name="twitter:image" content="/images/gki-tech-preview.jpg" />
-        <meta name="twitter:creator" content="@greenkenya" />
-        
-        {/* Additional Meta */}
-        <meta name="theme-color" content="#0d9488" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      </Head>
-
       <AnimatePresence>
         {isLoading && <Preloader />}
       </AnimatePresence>

@@ -1,12 +1,14 @@
-import Head from 'next/head';
+// app/team/page.jsx - CREATE THIS NEW FILE
+'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Mail, Phone, MapPin, Award, Users, Calendar } from 'lucide-react';
 
 const Team = () => {
   const teamMembers = [
     {
-      name: 'Sir Hannington Wanyonyi',
+      name: 'Sir Hannington Wanyonyi', 
       role: 'Founder & CEO',
       image: '/images/founder.PNG',
       bio: 'Visionary leader passionate about youth empowerment and environmental conservation.',
@@ -70,13 +72,8 @@ const Team = () => {
 
   return (
     <>
-      <Head>
-        <title>Our Team | Green Kenya Initiative</title>
-        <meta name="description" content="Meet the dedicated team behind Green Kenya Initiative - passionate individuals driving environmental change." />
-      </Head>
-
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-teal-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -85,7 +82,7 @@ const Team = () => {
             className="text-center"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Meet Our <span className="text-gradient">Team</span>
+              Meet Our <span className="bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">Team</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
               Passionate individuals dedicated to creating a greener, more sustainable Kenya through youth empowerment and environmental action.
@@ -120,7 +117,7 @@ const Team = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="card-modern p-6 text-center group hover:border-primary-200 dark:hover:border-primary-600"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 text-center group hover:border-teal-200 dark:hover:border-teal-600 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative w-32 h-32 mx-auto mb-6 rounded-2xl overflow-hidden group-hover:scale-105 transition-transform duration-300">
                   <Image
@@ -134,7 +131,7 @@ const Team = () => {
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                   {member.name}
                 </h3>
-                <p className="text-primary-600 dark:text-primary-400 font-semibold mb-4">
+                <p className="text-teal-600 dark:text-teal-400 font-semibold mb-4">
                   {member.role}
                 </p>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
@@ -196,9 +193,9 @@ const Team = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="card-modern p-8 text-center group hover:border-primary-200 dark:hover:border-primary-600"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-8 text-center group hover:border-teal-200 dark:hover:border-teal-600 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-primary-500 to-blue-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-teal-500 to-blue-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <dept.icon className="w-8 h-8 text-white" />
                 </div>
                 
@@ -208,7 +205,7 @@ const Team = () => {
                 
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
+                    <div className="text-2xl font-bold text-teal-600 dark:text-teal-400">
                       {dept.members}
                     </div>
                     <div className="text-sm text-gray-600 dark:text-gray-400">Members</div>
@@ -241,15 +238,18 @@ const Team = () => {
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
               We're always looking for passionate individuals who share our vision for a greener Kenya.
             </p>
-            <motion.a
-              href="/join"
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-600 to-blue-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              Join Our Team
-              <Users className="w-5 h-5 ml-2" />
-            </motion.a>
+              <Link
+                href="/join"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-teal-600 to-blue-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Join Our Team
+                <Users className="w-5 h-5 ml-2" />
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
