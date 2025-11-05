@@ -233,7 +233,7 @@ const createMotionProps = (shouldReduceMotion) => ({
 });
 
 // -----------------------------
-// Enhanced WelcomeSection with Micro-Interactions
+// Enhanced WelcomeSection with Fixed Layout
 // -----------------------------
 const WelcomeSection = () => {
   const router = useRouter();
@@ -311,13 +311,13 @@ const WelcomeSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-20 items-start">
           {/* LEFT: Enhanced Mission & Overview */}
           <article className="space-y-8" aria-labelledby="mission-heading">
-            {/* Centered Mission & Vision Header */}
-            <motion.div {...motionConfig.fadeLeft} className="text-center lg:text-left">
-              <div className="inline-flex flex-col items-center lg:items-start space-y-4 mb-8 p-6 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-3xl border border-emerald-100 dark:border-emerald-800/30">
-                <div className="flex items-center justify-center lg:justify-start space-x-4 w-full">
+            {/* Centered Mission & Vision Header - FIXED LAYOUT */}
+            <motion.div {...motionConfig.fadeLeft}>
+              <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-3xl border border-emerald-100 dark:border-emerald-800/30 p-8 mb-8">
+                <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 mb-6">
                   <motion.div
                     whileHover={shouldReduceMotion ? {} : { scale: 1.05, rotate: 5 }}
-                    className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center shadow-2xl shadow-emerald-500/25 relative overflow-hidden"
+                    className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center shadow-2xl shadow-emerald-500/25 relative overflow-hidden flex-shrink-0"
                   >
                     <Target className="w-8 h-8 text-white relative z-10" aria-hidden="true" />
                     {!shouldReduceMotion && (
@@ -329,65 +329,68 @@ const WelcomeSection = () => {
                     )}
                   </motion.div>
                   
-                  <div className="text-center lg:text-left">
-                    <h2 id="mission-heading" className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                  <div className="text-center lg:text-left flex-1">
+                    <h2 id="mission-heading" className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-black">
                       Our Mission & Vision
                     </h2>
-                    <p className="text-emerald-600 dark:text-emerald-400 font-semibold text-lg">
+                    <p className="text-emerald-600 dark:text-emerald-400 font-semibold text-lg mt-2">
                       Creating Sustainable Impact Across Kenya
                     </p>
                   </div>
                 </div>
                 
-                {/* Mission & Vision Statements */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full pt-4">
-                  <div className="text-center p-4 bg-white/80 dark:bg-gray-800/60 rounded-2xl shadow-sm border border-emerald-100 dark:border-emerald-800/40">
-                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-white font-bold text-lg">🎯</span>
+                {/* Mission & Vision Statements - IMPROVED GRID */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="text-center p-6 bg-white/80 dark:bg-gray-800/60 rounded-2xl shadow-sm border border-emerald-100 dark:border-emerald-800/40">
+                    <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-white font-bold text-xl">🎯</span>
                     </div>
-                    <h3 className="font-bold text-gray-900 dark:text-white mb-2">Our Mission</h3>
+                    <h3 className="font-bold text-gray-900 dark:text-white mb-3 text-lg">Our Mission</h3>
                     <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                       To empower youth through environmental action and sustainable community development
                     </p>
                   </div>
                   
-                  <div className="text-center p-4 bg-white/80 dark:bg-gray-800/60 rounded-2xl shadow-sm border border-emerald-100 dark:border-emerald-800/40">
-                    <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-white font-bold text-lg">🌟</span>
+                  <div className="text-center p-6 bg-white/80 dark:bg-gray-800/60 rounded-2xl shadow-sm border border-emerald-100 dark:border-emerald-800/40">
+                    <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-white font-bold text-xl">🌟</span>
                     </div>
-                    <h3 className="font-bold text-gray-900 dark:text-white mb-2">Our Vision</h3>
+                    <h3 className="font-bold text-gray-900 dark:text-white mb-3 text-lg">Our Vision</h3>
                     <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                      A Kenya where youth lead in creating green, sustainable communities
+                      A Kenya where youth lead in creating green, sustainable communities for future generations
                     </p>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Enhanced Content */}
-            <motion.div {...motionConfig.fadeLeft} className="space-y-6 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-              <p>
-                <strong className="text-gray-900 dark:text-white">Green Kenya Initiative (GKI)</strong> is a youth-led movement dedicated to environmental conservation and sustainable community development. We believe in the power of young people to drive meaningful change.
-              </p>
+            {/* Enhanced Content Section */}
+            <motion.div {...motionConfig.fadeLeft} className="space-y-8">
+              <div className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed space-y-6">
+                <p>
+                  <strong className="text-gray-900 dark:text-white">Green Kenya Initiative (GKI)</strong> is a youth-led movement dedicated to environmental conservation and sustainable community development. We believe in the power of young people to drive meaningful change.
+                </p>
 
-              <p>
-                Our platform empowers Kenyan youth to actively participate in creating greener, more sustainable communities through hands-on projects and innovative solutions.
-              </p>
+                <p>
+                  Our platform empowers Kenyan youth to actively participate in creating greener, more sustainable communities through hands-on projects and innovative solutions.
+                </p>
+              </div>
 
-              {/* Enhanced Core Focus Areas */}
+              {/* Enhanced Core Focus Areas - FIXED LAYOUT */}
               <motion.aside
                 whileHover={shouldReduceMotion ? {} : { y: -4 }}
                 className="bg-gradient-to-br from-emerald-50/80 to-teal-50/80 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-3xl p-8 border-2 border-emerald-200/60 dark:border-emerald-700/30 shadow-lg hover:shadow-xl transition-all duration-500 backdrop-blur-sm"
                 aria-label="Core focus areas"
               >
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-blue">
                     Our Core Focus Areas
                   </h3>
-                  <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full mx-auto"></div>
+
+                  <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full mx-auto"></div>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {coreFocusAreas.map((area, index) => (
                     <motion.div
                       key={area}
@@ -396,16 +399,20 @@ const WelcomeSection = () => {
                       transition={{ delay: index * 0.1, duration: 0.5 }}
                       viewport={{ once: true }}
                       whileHover={shouldReduceMotion ? {} : { scale: 1.02, x: 4 }}
-                      className="flex items-start gap-4 p-4 bg-white/60 dark:bg-gray-800/40 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer"
+                      className="flex items-start gap-4 p-5 bg-white/70 dark:bg-gray-800/50 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer border border-white/50 dark:border-gray-700/30"
                     >
-                      <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
-                        <span className="text-white font-bold text-sm">
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
+                        <span className="text-white font-bold text-base">
                           {['🌿', '🚀', '🌱', '🏘️'][index]}
                         </span>
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 dark:text-white mb-1 text-sm">{area.split(' & ')[0]}</h4>
-                        <p className="text-xs text-gray-600 dark:text-gray-400">{area.split(' & ')[1]}</p>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-gray-900 dark:text-white mb-1 text-base leading-tight">
+                          {area.split(' & ')[0]}
+                        </h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400 leading-tight">
+                          {area.split(' & ')[1]}
+                        </p>
                       </div>
                     </motion.div>
                   ))}
@@ -413,34 +420,13 @@ const WelcomeSection = () => {
               </motion.aside>
             </motion.div>
 
-            {/* Visually Enhanced Impact Stats - FIXED VERSION */}
+            {/* Visually Enhanced Impact Stats */}
             <motion.div
               {...motionConfig.stagger}
-              className="grid grid-cols-2 gap-6 pt-8"
+              className="grid grid-cols-2 gap-6 pt-6"
               aria-label="Organization impact statistics"
             >
               {impactStats.map((stat, idx) => {
-                // Safe color extraction with fallbacks
-                const getColorValues = (colorString) => {
-                  try {
-                    // Handle different color string formats safely
-                    const colors = colorString.split(' ');
-                    const fromColor = colors[1] || 'emerald-500';
-                    const toColor = colors[3] || 'teal-500';
-                    
-                    // Convert to lighter variants for the animation
-                    const fromLight = fromColor.replace('500', '200');
-                    const toLight = toColor.replace('500', '200');
-                    
-                    return { fromLight, toLight };
-                  } catch (error) {
-                    // Fallback colors if parsing fails
-                    return { fromLight: 'emerald-200', toLight: 'teal-200' };
-                  }
-                };
-
-                const { fromLight, toLight } = getColorValues(stat.color);
-
                 return (
                   <motion.div
                     key={stat.label}
@@ -453,7 +439,7 @@ const WelcomeSection = () => {
                       scale: 1.05,
                       transition: { duration: 0.3, type: "spring", stiffness: 300 }
                     }}
-                    className="relative text-center p-6 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden"
+                    className="relative text-center p-6 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden border border-gray-100 dark:border-gray-600"
                   >
                     {/* Simplified Animated Background */}
                     {!shouldReduceMotion && (
@@ -504,30 +490,30 @@ const WelcomeSection = () => {
 
             {/* Enhanced CTAs */}
             <motion.div
-              initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-              whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              viewport={{ once: true }}
-              className="flex flex-col sm:flex-row gap-4 pt-8"
-            >
-              <Link
-                href="/projects"
-                className="flex-1 inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300 group"
-                aria-label="Explore our projects and initiatives"
-              >
-                <Target className="w-5 h-5 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                <span className="text-lg">Explore Our Work</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-              </Link>
+  initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+  whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.8 }}
+  viewport={{ once: true }}
+  className="flex flex-col sm:flex-row gap-4 pt-8"
+>
+  <Link
+    href="/projects"
+    className="flex-1 inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-bold rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 group"
+    aria-label="Explore our projects and initiatives"
+  >
+    <Target className="w-5 h-5 group-hover:scale-110 transition-transform" aria-hidden="true" />
+    <span className="text-lg">Explore Our Work</span>
+    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+  </Link>
 
-              <Link
-                href="/about"
-                className="flex-1 inline-flex items-center justify-center px-8 py-4 border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-200 hover:shadow-lg text-lg"
-                aria-label="Learn more about Green Kenya Initiative"
-              >
-                Learn More
-              </Link>
-            </motion.div>
+  <Link
+    href="/about"
+    className="flex-1 inline-flex items-center justify-center px-8 py-4 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-200 hover:shadow-lg text-lg"
+    aria-label="Learn more about Green Kenya Initiative"
+  >
+    Learn More
+  </Link>
+</motion.div>
           </article>
 
           {/* RIGHT: Enhanced Founder Message */}
@@ -570,7 +556,7 @@ const WelcomeSection = () => {
 
             <motion.div
               whileHover={shouldReduceMotion ? {} : { y: -2 }}
-              className="bg-white/85 dark:bg-gray-800/85 backdrop-blur rounded-3xl p-6 sm:p-8 border border-emerald-200/40 dark:border-emerald-700/30 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden"
+              className="bg-white/85 dark:bg-gray-800/85 backdrop-blur rounded-3xl p-8 border border-emerald-200/40 dark:border-emerald-700/30 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden"
               role="article"
               aria-labelledby="founder-heading"
             >
@@ -599,7 +585,7 @@ const WelcomeSection = () => {
                       <span className="text-white font-bold text-sm">HW</span>
                     </div>
                     <div>
-                      <p className="font-bold text-gray-900 dark:text-white">Hannington Wanyonyi</p>
+                      <p className="font-bold text-gray-900 dark:text-white">Sir. Hannington Wanyonyi</p>
                       <p className="text-emerald-600 dark:text-emerald-400 text-sm">Founder & CEO</p>
                     </div>
                   </div>
