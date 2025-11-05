@@ -102,7 +102,7 @@ const Navbar = () => {
             <Link href="/" className="flex items-center space-x-3">
               <div className="w-10 h-10 relative">
                 <Image
-                  src="/images/gki-logo.png"
+                  src="/images/gki-logo.PNG"
                   alt="Green Kenya Initiative Logo"
                   width={40}
                   height={40}
