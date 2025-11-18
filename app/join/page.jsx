@@ -1,4 +1,4 @@
-// app/join/page.jsx - CREATE THIS NEW FILE
+// app/join/page.jsx - UPDATED WITH WORKING EMAIL SUBMISSION
 'use client';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
@@ -64,54 +64,79 @@ const Join = () => {
       });
       return;
     }
+
+    // Validate interests
+    if (formData.interests.length === 0) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please select at least one area of interest.'
+      });
+      return;
+    }
     
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
-      // Your Google Script URL
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzd24TyDcWhg9H-8687O7z1TjCMi2EqG0M9DW1LnF1o7LHIflNvdL-wm_rR7hcXAj9X/exec';
-      
-      // Prepare form data for Google Sheets
-      const formPayload = new URLSearchParams();
-      formPayload.append('Name', formData.name);
-      formPayload.append('Email', formData.email);
-      formPayload.append('Phone', formData.phone);
-      formPayload.append('Location', formData.location);
-      formPayload.append('Membership', formData.membership);
-      formPayload.append('Interests', formData.interests.join(', '));
-      formPayload.append('Experience', formData.experience || 'Not provided');
-      formPayload.append('Message', formData.message);
+      // Create formatted email content
+      const emailSubject = `New Membership Application - ${formData.name}`;
+      const emailBody = `
+🌱 NEW MEMBERSHIP APPLICATION - GREEN KENYA INITIATIVE
 
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formPayload,
+PERSONAL INFORMATION:
+-------------------
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Location: ${formData.location}
+
+MEMBERSHIP DETAILS:
+------------------
+Category: ${membershipCategories.find(cat => cat.value === formData.membership)?.label}
+Areas of Interest: ${formData.interests.join(', ')}
+
+EXPERIENCE & MOTIVATION:
+-----------------------
+Previous Experience: ${formData.experience || 'Not provided'}
+
+Why they want to join:
+${formData.message}
+
+APPLICATION DETAILS:
+-------------------
+Submitted: ${new Date().toLocaleString('en-KE')}
+Timestamp: ${new Date().toISOString()}
+
+---
+Green Kenya Initiative Membership System
+📍 Kilifi, Kenya | 📞 +254 717650704
+      `.trim();
+
+      // Open email client with pre-filled content
+      const mailtoLink = `mailto:greenkenyainitiative985@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      
+      // Show success message first
+      setSubmitStatus({
+        type: 'success',
+        message: 'Application prepared! Your email client will open with a pre-filled message. Please click "Send" to complete your application.'
       });
 
-      const result = await response.json();
+      // Reset form
+      setFormData({
+        name: '', email: '', phone: '', location: '',
+        membership: '', interests: [], experience: '', message: ''
+      });
 
-      if (result.success) {
-        setSubmitStatus({
-          type: 'success',
-          message: result.message || 'Application submitted successfully! We will review your membership application and contact you soon.'
-        });
-        
-        // Reset form
-        setFormData({
-          name: '', email: '', phone: '', location: '',
-          membership: '', interests: [], experience: '', message: ''
-        });
-      } else {
-        throw new Error(result.message || 'Submission failed');
-      }
+      // Open email client after a short delay
+      setTimeout(() => {
+        window.location.href = mailtoLink;
+      }, 1500);
+
     } catch (error) {
       console.error('Submission error:', error);
       setSubmitStatus({
         type: 'error',
-        message: error.message || 'Failed to submit application. Please try again or contact us directly at info@greenkenya.org.'
+        message: 'Failed to prepare application. Please email us directly at greenkenyainitiative985@gmail.com with your details.'
       });
     } finally {
       setIsSubmitting(false);
@@ -365,6 +390,11 @@ const Join = () => {
                     </button>
                   ))}
                 </div>
+                {formData.interests.length === 0 && (
+                  <p className="text-sm text-red-600 dark:text-red-400 mt-2">
+                    Please select at least one area of interest
+                  </p>
+                )}
               </div>
 
               <div>
@@ -413,7 +443,7 @@ const Join = () => {
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                    Submitting...
+                    Preparing Application...
                   </>
                 ) : (
                   <>
@@ -449,6 +479,13 @@ const Join = () => {
                   </div>
                 </motion.div>
               )}
+
+              {/* Additional Instructions */}
+              <div className="text-center text-sm text-gray-500 dark:text-gray-400">
+                <p>
+                  💡 Your application will open in your email client. Please click "Send" to complete the submission.
+                </p>
+              </div>
             </form>
           </motion.div>
         </div>

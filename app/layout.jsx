@@ -1,5 +1,7 @@
-import Layout from '@/components/layout';
-import '../styles/globals.css';  // Correct path to your CSS file
+import './globals.css';  // global CSS (correct path)
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Green Kenya Initiative',
@@ -9,10 +11,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <Layout>
-          {children}
-        </Layout>
+      <body className={inter.className}>
+        {children}
       </body>
     </html>
   );

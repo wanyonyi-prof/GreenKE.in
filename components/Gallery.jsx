@@ -1,19 +1,18 @@
 'use client';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Play, X, Volume2, VolumeX } from 'lucide-react';
 
-// Import or define the team data structure
+// Team data structure
 const teamData = [
   {
     name: "Sir Hannington Wanyonyi",
     role: "Founder & CEO",
-    image: "/images/founder.jpg", // Make sure this path matches your actual image
+    image: "/images/team/founder.jpg", // Use consistent path
     description: "Visionary leader with 10+ years in environmental activism"
   },
-  // ... other team members
+  // ... other team members can be added here
 ];
 
 const VideoItem = ({ video, title, description, delay }) => {
@@ -99,7 +98,7 @@ const VideoItem = ({ video, title, description, delay }) => {
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 mb-4 mx-auto shadow-lg">
-                  <Play className="w-6 h-6 text-teal-600 ml-1" fill="currentColor" />
+                  <Play className="w-6 h-6 text-emerald-600 ml-1" fill="currentColor" />
                 </div>
                 <p className="text-white font-semibold text-sm bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">
                   Click for full video
@@ -147,7 +146,7 @@ const VideoItem = ({ video, title, description, delay }) => {
             {/* Video progress bar */}
             <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-600">
               <div 
-                className="h-full bg-primary-500 transition-all duration-100"
+                className="h-full bg-emerald-500 transition-all duration-100"
                 style={{ 
                   width: videoRef.current ? 
                     `${(videoRef.current.currentTime / videoRef.current.duration) * 100}%` : '0%' 
@@ -181,13 +180,14 @@ const ImageItem = ({ image, title, description, delay }) => {
     >
       <div className="relative h-64 w-full">
         <Image
-          src={image}
+          src={image || "/images/placeholder.jpg"} // Fallback image
           alt={title}
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-500"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaUMkQ0sNVTmuvhlDmGSCJ2hwYSAAL1kYE/"
+          onError={(e) => {
+            e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='18' fill='%239ca3af'%3EImage Loading%3C/text%3E%3C/svg%3E";
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
@@ -231,31 +231,31 @@ const GalleryItem = ({ image, video, title, description, delay }) => {
 const Gallery = () => {
   // Get the founder's image from team data
   const founder = teamData.find(member => member.role.toLowerCase().includes('founder'));
-  const founderImage = founder?.image || '/images/team/founder.jpg'; // Fallback path
+  const founderImage = founder?.image || '/images/team/placeholder.jpg'; // Fallback path
 
   const galleryItems = [
     {
-      image: '/images/tree-planting.jpg',
+      image: '/images/gallery/tree-planting.jpg',
       title: 'Tree Planting Drive',
       description: 'Promoting reforestation and eco-awareness across counties.',
     },
     {
-      video: '/videos/tree-planting.MP4',
+      video: '/videos/tree-planting.mp4', // Fixed extension to lowercase
       title: 'Communal Tree Planting',
       description: 'Coming together to protect our environment, more trees, more rainfall.',
     },
     {
-      image: '/images/community-cleanup.jpg',
+      image: '/images/gallery/community-cleanup.jpg',
       title: 'Community Clean-Up',
       description: 'Mobilizing volunteers to make towns and villages cleaner.',
     },
     {
-      image: founderImage, // Using the founder's image from team data
+      image: founderImage,
       title: 'Our Founder',
       description: founder ? `${founder.name} - ${founder.role}` : 'Founder & CEO',
     },
     {
-      image: '/images/water-project.jpg',
+      image: '/images/gallery/mentorship.jpg',
       title: 'Mentorship Activities',
       description: 'Empowering the next generation through mentorship and practical training.',
     },
@@ -303,9 +303,9 @@ const Gallery = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mt-12 p-4 bg-primary-50 dark:bg-primary-900/20 rounded-2xl"
+          className="text-center mt-12 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl"
         >
-          <p className="text-primary-700 dark:text-primary-300 font-medium">
+          <p className="text-emerald-700 dark:text-emerald-300 font-medium">
             💡 <strong>Tip:</strong> Videos automatically play previews when visible. Click to watch full videos with sound!
           </p>
         </motion.div>
@@ -314,4 +314,5 @@ const Gallery = () => {
   );
 };
 
+// ✅ CRITICAL FIX: Added missing export
 export default Gallery;

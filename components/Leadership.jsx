@@ -55,15 +55,15 @@ const LeaderCard = ({ image, name, role, message, delay }) => {
 const Leadership = () => {
   const leaders = [
     {
-      image: '/images/founder.jpg',
-      name: 'Sir. Hannington Wanyonyi',
+      image: '/images/founder.png',
+      name: 'Sir  . Hannington Wanyonyi',
       role: 'Founder & CEO',
       message:
         'GKI began as a vision — to empower youth and create a greener Kenya. Through innovation, collaboration, and resilience, we’re shaping a sustainable future powered by young minds.',
     },
     {
       image: '/images/chairperson.jpg',
-      name: 'Lincent Wesonga',
+      name: 'Mr. Lincent Wesonga',
       role: 'Chairperson',
       message:
         'Each tree we plant represents hope. Each mentorship we offer builds tomorrow’s leaders. At GKI, we grow Kenya — sustainably, together.',
