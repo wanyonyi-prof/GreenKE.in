@@ -10,7 +10,7 @@ const Team = () => {
     {
       name: 'Sir Hannington Wanyonyi', 
       role: 'Founder & CEO',
-      image: '/images/founder.PNG',
+      image: '/images/founder.png',
       bio: 'Visionary leader passionate about youth empowerment and environmental conservation.',
       email: 'hanningtonwanyonyi00@gmail.com',
       phone: '+254-717650704',
