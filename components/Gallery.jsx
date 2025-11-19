@@ -231,7 +231,7 @@ const GalleryItem = ({ image, video, title, description, delay }) => {
 const Gallery = () => {
   // Get the founder's image from team data
   const founder = teamData.find(member => member.role.toLowerCase().includes('founder'));
-  const founderImage = founder?.image || '/images/team/placeholder.jpg'; // Fallback path
+  const founderImage = founder?.image || '/images/team/founder.jpg'; // Fallback path
 
   const galleryItems = [
     {
