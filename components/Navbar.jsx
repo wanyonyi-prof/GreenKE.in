@@ -68,7 +68,7 @@ const Navbar = () => {
   // Don't render until mounted to avoid hydration issues
   if (!isMounted) {
     return (
-      <nav className="fixed top-0 w-full z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-sm h-20">
+      <nav className="fixed top-0 w-full z-50 bg-white dark:bg-gray-900 shadow-sm h-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
           <div className="flex justify-between items-center h-full">
             <div className="flex items-center space-x-3">
@@ -88,8 +88,8 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-white/98 backdrop-blur-xl shadow-2xl border-b border-emerald-100/50 dark:bg-gray-900/98 dark:border-emerald-900/30' 
-          : 'bg-white/95 backdrop-blur-lg dark:bg-gray-900/95'
+          ? 'bg-white shadow-lg border-b border-emerald-100 dark:bg-gray-900 dark:border-emerald-900/20' 
+          : 'bg-white dark:bg-gray-900'
       }`}
     >
       {/* Top Announcement Bar */}
@@ -230,7 +230,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: -20 }}
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                className="lg:hidden absolute left-4 right-4 top-24 bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-emerald-100/50 dark:border-emerald-900/30 overflow-hidden z-50"
+                className="lg:hidden absolute left-4 right-4 top-24 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-emerald-100 dark:border-emerald-900/30 overflow-hidden z-50"
               >
                 <div className="p-4 space-y-1">
                   {navItems.map((item, index) => (
@@ -268,7 +268,7 @@ const Navbar = () => {
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <span className="flex items-center justify-center gap-2">
-                        <Users className="w-5 h-5" /> {/* ✅ NOW CORRECT */}
+                        <Users className="w-5 h-5" /> 
                         Join Our Movement
                       </span>
                     </Link>

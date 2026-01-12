@@ -205,8 +205,8 @@ const Hero = () => {
                     onClick={() => goToSlide(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 ${
                       index === currentSlide 
-                        ? 'bg-white scale-125' 
-                        : 'bg-white/50 hover:bg-white/70'
+                        ? 'bg-white scale-125 ring-2 ring-white/30' 
+                        : 'bg-white/60 hover:bg-white/80'
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />

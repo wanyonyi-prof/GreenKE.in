@@ -1,7 +1,7 @@
 // app/page.jsx - ENHANCED GREEN KENYA INITIATIVE
 'use client';
 
-import React from 'react'; // ✅ ADD THIS IMPORT
+import React from 'react'; 
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useState, useEffect, lazy, Suspense } from 'react';
 import dynamic from 'next/dynamic';
@@ -144,9 +144,9 @@ const WelcomeSection = () => {
         {/* Enhanced Header */}
         <motion.header {...motionConfig.fadeUp} className="text-center mb-16">
           <h1 id="welcome-heading" className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white mb-4">
-            Diversified Youth Empowerment, Kenya Is My Home{' '}
+            {' '}
             <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent relative">
-              Green Kenya Initiative
+              Green Kenya Initiative - GKI
             </span>
           </h1>
         </motion.header>

@@ -1,4 +1,3 @@
-// app/about/page.jsx - CREATE THIS NEW FILE
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';

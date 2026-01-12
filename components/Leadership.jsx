@@ -55,7 +55,7 @@ const LeaderCard = ({ image, name, role, message, delay }) => {
 const Leadership = () => {
   const leaders = [
     {
-      image: '/images/founder.png',
+      image: '/images/founder.jpg',
       name: 'Sir . Hannington Wanyonyi',
       role: 'Founder & CEO',
       message:

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /_next/
+
+Sitemap: https://green-ke-in.vercel.app/sitemap.xml
