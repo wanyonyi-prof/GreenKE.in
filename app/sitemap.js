@@ -1,5 +1,5 @@
 export default function sitemap() {
- const baseUrl = 'https://green-ke-in-mj7n.vercel.app'; 
+const baseUrl = 'https://green-ke-in-uaft.vercel.app';
   const currentDate = new Date().toISOString().split('T')[0];
   
   const routes = [

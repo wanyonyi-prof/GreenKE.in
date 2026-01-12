@@ -4,4 +4,4 @@ Allow: /
 Disallow: /api/
 Disallow: /_next/
 
-Sitemap: https://green-ke-in-mj7n.vercel.app/sitemap.xml
+Sitemap: https://green-ke-in-uaft.vercel.app/sitemap.xml
